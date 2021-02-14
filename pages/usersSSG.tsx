@@ -2,6 +2,7 @@
 
 import React from 'react'
 import Head from 'next/head'
+import Link from 'next/link'
 import axios from 'axios'
 import { GetStaticProps } from 'next'
 
@@ -32,7 +33,9 @@ const Users : React.FC<Props> = ({users}) => {
       <ul>
         {users && users.map(user => (
           <li key={user.id}>
-            {user.name}
+            <Link href={`/users/${user.id}`}>
+              {user.name}
+            </Link>
           </li>
         ))}
       </ul>
