@@ -16,9 +16,9 @@ export default function Home() {
           Welcome to <a href="https://nextjs.org">Next.js Basic</a>
         </h1>
 
-        <Users />
+        {/* <Users /> */}
 
-        <Todos />
+        {/* <Todos /> */}
       </main>
     </div>
   )
