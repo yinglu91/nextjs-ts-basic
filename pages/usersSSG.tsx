@@ -17,14 +17,12 @@ interface Props {
 }
 
 const Users : React.FC<Props> = ({users}) => {
-  console.log(users)
-  
   if (!users) return <div>loading...</div>
 
   return (
     <div>
       <Head>
-        <title>NextJS Users</title>
+        <title>NextJS Basic | Users</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       
@@ -42,6 +40,11 @@ const Users : React.FC<Props> = ({users}) => {
     </div>
   )
 }
+
+// export type GetStaticPropsResult<P> =
+//   | { props: P; revalidate?: number | boolean }
+//   | { redirect: Redirect; revalidate?: number | boolean }
+//   | { notFound: true }
 
 // (Static Generation): Fetch data at build time
 export const getStaticProps: GetStaticProps = async context => {

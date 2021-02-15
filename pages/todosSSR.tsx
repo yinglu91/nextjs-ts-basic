@@ -19,7 +19,7 @@ const Todos: React.FC<Props> = ({ todos }) => {
   return (
     <div>
       <Head>
-        <title>NextJS Todos</title>
+        <title>NextJS Basic | Todos</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       
@@ -37,8 +37,9 @@ const Todos: React.FC<Props> = ({ todos }) => {
 }
 
 
-// | { props: P }
-// | { redirect: Redirect }
+// export type GetStaticPropsResult<P> =
+//   | { props: P; revalidate?: number | boolean }
+//   | { redirect: Redirect; revalidate?: number | boolean }
 //   | { notFound: true }
 
 export const getServerSideProps: GetServerSideProps = async context => {

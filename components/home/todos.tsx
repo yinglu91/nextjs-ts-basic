@@ -1,43 +1,22 @@
-
-import Head from 'next/head'
-import useSWR from 'swr'
-import axios from 'axios'
-
-export interface Todo {
-  id: number;
-  title: string;
-  completed: boolean;
-}
-
-const fetcher = async (url: string) => {
-  const {data} = await axios.get<Todo[]>(url)
-  return data
-}
+import { useTodos } from '../../lib/useTodos'
 
 const Todos = () => {
-  const { data, error } = useSWR('https://jsonplaceholder.typicode.com/todos', fetcher)
-  console.log(data)
-  
-  if (error) return <div>failed to load</div>
-  if (!data) return <div>loading...</div>
+  const { todos, isLoading, isError } = useTodos()
+
+  if (isLoading) return <div>loading...</div>
+  if (isError) return <div>Error...</div>
 
   return (
     <div>
-      <Head>
-        <title>NextJS Todos</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-      
-      <h1>Hello from Todos - # of todos: {data?.length}</h1>
+      <h1>Hello from {todos?.length} Todos</h1>
 
       <ul>
-        {data && data.map(todo => (
+        {todos && todos.map(todo => (
           <li key={todo.id}>
             {todo.title}
           </li>
         ))}
       </ul>
-
     </div>
   )
 }

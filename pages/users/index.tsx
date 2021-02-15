@@ -12,14 +12,12 @@ export interface User {
 }
 
 const Users = ({users}) => {
-  console.log(users)
-  
   if (!users) return <div>loading...</div>
 
   return (
     <div>
       <Head>
-        <title>NextJS Users</title>
+        <title>NextJS Basic | Users</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       
